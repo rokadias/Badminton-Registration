@@ -1,0 +1,24 @@
+{
+  "name": "badminton-registration",
+  "version": "0.1.0",
+  "description": "Login to badminton site and register myself",
+  "main": "index.ts",
+  "scripts": {
+    "start": "node --unhandled-rejections=throw -r ts-node/register -r tsconfig-paths/register src/index.ts",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Saqib Rokadia <saqib@saqibr.com>",
+  "dependencies": {
+    "@types/puppeteer-core": "^5.4.0",
+    "@types/random-words": "^1.1.0",
+    "puppeteer-core": "^8.0.0",
+    "random-words": "^1.1.1",
+    "ts-node": "^9.1.1",
+    "tsconfig-paths": "^3.9.0",
+    "typescript": "^4.2.4",
+    "yaml": "^1.10.2"
+  },
+  "devDependencies": {
+    "tslint": "^6.1.3"
+  }
+}
