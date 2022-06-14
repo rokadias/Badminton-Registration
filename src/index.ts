@@ -1,3 +1,4 @@
+import * as child from "child_process";
 import puppeteer from "puppeteer-core";
 import { Browser } from "puppeteer-core";
 import registrationJson from "../config/registration.json";
@@ -99,6 +100,8 @@ async function run(): Promise<void> {
     console.log(
       `You're already registered: "${meRegistered}", nothing left to do!`
     );
+    await browser.close();
+    return;
   }
 
   const selectUnregistered = await page.$(
@@ -127,10 +130,11 @@ async function run(): Promise<void> {
     const partnerOptionValue = matchingPartnerOption[1];
     if (partnerOptionValue) {
       await selectUnregistered.select(partnerOptionValue);
-      await page.waitForTimeout(4000);
+      await page.waitForTimeout(10000);
       await page.click("input#ctl00_bodyContentPlaceHolder_registerTB");
-      await page.waitForTimeout(4000);
+      await page.waitForTimeout(10000);
       console.log("Clicked on Register, hopefully a registration occurred!");
+      child.exec("notify-send 'Clicked on Register!'");
     }
   }
 
